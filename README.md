@@ -109,3 +109,42 @@ Figma： https://www.figma.com/design/qaJ0O0EailEXqawdcocG1O/%E7%84%A1%E9%A1%8C?
 - [x] ピアノ演奏画面
 - [x] メロディー練習画面
 - [x] 利用規約画面
+
+## ER図の追加
+本アプリで使用するテーブル構造をER図として整理しました。
+楽曲データ（songs）と演奏履歴（play_histories）の2テーブルを使用し、
+練習モードや自由演奏モードの記録を保存する設計となっています。
+
+### ER図スクリーンショット
+https://gyazo.com/0e9b3f304f087059a457897900da6ed7
+
+### 本サービスの概要（700文字以内）
+ブラウザ上で誰でも気軽にピアノ演奏を楽しめるWebアプリです。
+自由演奏モードと、メロディーを覚えて演奏する練習モードを提供しています。
+楽譜や専門知識がなくても操作でき、音楽に触れるきっかけを作ることを目的としています。
+
+### MVPで実装する予定の機能
+- ピアノ鍵盤の表示
+- 鍵盤クリックによる音の再生
+- 自由演奏モード
+- メロディー練習モード（きらきら星）
+- 演奏履歴の保存（正解/不正解）
+
+### テーブル詳細
+#### songs テーブル
+- id : bigint（PK）
+- title : string（曲名）
+- notes : text（曲の音階データ）
+- created_at : datetime
+- updated_at : datetime
+
+#### play_histories テーブル
+- id : bigint（PK）
+- song_id : bigint（FK / songs.id）
+- correct : boolean（正解したかどうか）
+- played_at : datetime（演奏した日時）
+- created_at : datetime
+- updated_at : datetime
+
+以上、よろしくお願いいたします。
+
