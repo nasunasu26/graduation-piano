@@ -108,4 +108,4 @@ Figma： https://www.figma.com/design/qaJ0O0EailEXqawdcocG1O/%E7%84%A1%E9%A1%8C?
 ### 未ログインでも閲覧または利用できるページ
 - [x] ピアノ演奏画面
 - [x] メロディー練習画面
-
+- [x] 利用規約画面
