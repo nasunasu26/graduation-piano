@@ -83,9 +83,10 @@ MVPリリース時に作りたい機能
 ユーザーが飽きずに音楽に触れ続けられる体験を目指しています。
 
 ## 使用する技術スタック
-フレームワーク：Ruby on Rails
-フロントエンド：HTML / CSS / JavaScript
-音声再生：Web Audio API
-データベース：PostgreSQL
-デプロイ先：Render
+フレームワーク：Ruby on Rails 7.2.3  
+言語：Ruby 3.2.3  
+フロントエンド：HTML / CSS / JavaScript  
+音声再生：Web Audio API  
+データベース：PostgreSQL  
+デプロイ先：Render  
 バージョン管理：GitHub
