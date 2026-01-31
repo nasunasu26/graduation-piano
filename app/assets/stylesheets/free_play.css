@@ -1,0 +1,8 @@
+.free-play-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 縦中央 */
+  align-items: center;     /* 横中央 */
+  height: 100vh;
+  text-align: center;
+}

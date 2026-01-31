@@ -1,0 +1,9 @@
+/* ページ全体を中央寄せ */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 縦方向の中央 */
+  align-items: center;     /* 横方向の中央 */
+  height: 100vh;           /* 画面の高さぜんぶ使う */
+  text-align: center;
+}
