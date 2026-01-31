@@ -78,8 +78,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#  <<: *default
+#  database: graduation_piano_production
+#  username: graduation_piano
+#  password: <%= ENV["GRADUATION_PIANO_DATABASE_PASSWORD"] %>
+
 production:
-  <<: *default
-  database: graduation_piano_production
-  username: graduation_piano
-  password: <%= ENV["GRADUATION_PIANO_DATABASE_PASSWORD"] %>
+  adapter: sqlite3
+  database: db/production.sqlite3
