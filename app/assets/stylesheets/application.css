@@ -1,15 +1,118 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+/* ===== Back Link Style ===== */
+
+.back-link {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.back-link a {
+  display: inline-block;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #4b3cc4;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+  background-color: rgba(75, 60, 196, 0.08);
+}
+
+/* ===== Page Center Layout ===== */
+
+.free-play-container {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.free-play-container h1 {
+  margin-bottom: 20px;
+}
+
+/* ===== Piano Keyboard ===== */
+
+.piano {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* ===== White Keys ===== */
+
+.white-keys {
+  display: flex;
+}
+
+.key {
+  border: 1px solid #999;
+  cursor: pointer;
+  transition: transform 0.05s ease;
+}
+
+.key:active {
+  transform: translateY(2px);
+}
+
+.key.white {
+  width: 64px;
+  height: 220px;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  font-size: 0;
+}
+
+/* ===== Black Keys ===== */
+
+.black-keys {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 140px;
+  z-index: 2;
+}
+
+.key.black {
+  position: absolute;
+  width: 40px;
+  height: 140px;
+  background: #111;
+  border-radius: 0 0 6px 6px;
+}
+
+.key.black:hover {
+  background: #222;
+}
+
+/* ===== Black Key Positions ===== */
+/* white key width = 64px */
+/* black key width = 40px */
+/* octave width = 7 * 64 = 448px */
+
+/* --- Octave 3 --- */
+[data-note="C#3"] { left: calc(64px * 1 - 20px); }
+[data-note="D#3"] { left: calc(64px * 2 - 20px); }
+[data-note="F#3"] { left: calc(64px * 4 - 20px); }
+[data-note="G#3"] { left: calc(64px * 5 - 20px); }
+[data-note="A#3"] { left: calc(64px * 6 - 20px); }
+
+/* --- Octave 4 --- */
+[data-note="C#4"] { left: calc(448px + 64px * 1 - 20px); }
+[data-note="D#4"] { left: calc(448px + 64px * 2 - 20px); }
+[data-note="F#4"] { left: calc(448px + 64px * 4 - 20px); }
+[data-note="G#4"] { left: calc(448px + 64px * 5 - 20px); }
+[data-note="A#4"] { left: calc(448px + 64px * 6 - 20px); }
+
+/* --- Octave 5 --- */
+[data-note="C#5"] { left: calc(896px + 64px * 1 - 20px); }
+[data-note="D#5"] { left: calc(896px + 64px * 2 - 20px); }
+[data-note="F#5"] { left: calc(896px + 64px * 4 - 20px); }
+[data-note="G#5"] { left: calc(896px + 64px * 5 - 20px); }
+[data-note="A#5"] { left: calc(896px + 64px * 6 - 20px); }

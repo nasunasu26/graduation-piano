@@ -1,53 +1,106 @@
-<div class="free-play-container">
-
+<div class="free-play-container" data-controller="free-play">
   <h1>自由演奏モード</h1>
 
   <div class="back-link">
     <%= link_to "← スタート画面に戻る", root_path %>
   </div>
 
-  <div class="keyboard">
-    <button data-note="C">C</button>
-    <button data-note="D">D</button>
-    <button data-note="E">E</button>
-    <button data-note="F">F</button>
-    <button data-note="G">G</button>
-    <button data-note="A">A</button>
-    <button data-note="B">B</button>
+  <div class="piano">
+    <!-- ===== 黒鍵 ===== -->
+    <div class="black-keys">
+      <!-- Octave 3 -->
+      <button class="key black" data-note="C#3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="D#3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <span class="black-gap"></span>
+      <button class="key black" data-note="F#3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="G#3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="A#3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+
+      <span class="octave-gap"></span>
+
+      <!-- Octave 4 -->
+      <button class="key black" data-note="C#4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="D#4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <span class="black-gap"></span>
+      <button class="key black" data-note="F#4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="G#4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="A#4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+
+      <span class="octave-gap"></span>
+
+      <!-- Octave 5 -->
+      <button class="key black" data-note="C#5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="D#5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <span class="black-gap"></span>
+      <button class="key black" data-note="F#5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="G#5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key black" data-note="A#5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+    </div>
+
+    <!-- ===== 白鍵 ===== -->
+    <div class="white-keys">
+      <!-- Octave 3 -->
+      <button class="key white" data-note="C3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="D3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="E3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="F3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="G3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="A3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="B3"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+
+      <!-- Octave 4 -->
+      <button class="key white" data-note="C4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="D4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="E4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="F4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="G4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="A4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="B4"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+
+      <!-- Octave 5 -->
+      <button class="key white" data-note="C5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="D5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="E5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="F5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="G5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="A5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+      <button class="key white" data-note="B5"
+        data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up"></button>
+    </div>
   </div>
-
 </div>
-
-<script nonce="<%= content_security_policy_nonce %>">
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("inline JS loaded 🎵");
-
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioContext;
-
-    const frequencies = {
-      C: 261.63,
-      D: 293.66,
-      E: 329.63,
-      F: 349.23,
-      G: 392.0,
-      A: 440.0,
-      B: 493.88,
-    };
-
-    document.querySelectorAll(".keyboard button").forEach((key) => {
-      key.addEventListener("click", () => {
-        if (!audioContext) audioContext = new AudioContext();
-
-        const note = key.dataset.note;
-        const osc = audioContext.createOscillator();
-        osc.frequency.value = frequencies[note];
-        osc.type = "sine";
-
-        osc.connect(audioContext.destination);
-        osc.start();
-        setTimeout(() => osc.stop(), 300);
-      });
-    });
-  });
-</script>

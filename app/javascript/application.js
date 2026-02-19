@@ -1,1 +1,2 @@
-import "free_play"
+import "@hotwired/turbo-rails"
+import "controllers"
