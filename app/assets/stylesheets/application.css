@@ -29,7 +29,7 @@
 
 .free-play-container {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .free-play-container h1 {
@@ -45,20 +45,29 @@
   user-select: none;
 }
 
-/* ===== White Keys ===== */
-
-.white-keys {
-  display: flex;
-}
+/* ===== Keys (共通) ===== */
 
 .key {
+  position: relative; /* ラベル配置用 */
   border: 1px solid #999;
   cursor: pointer;
   transition: transform 0.05s ease;
 }
 
+/* マウス操作 */
 .key:active {
   transform: translateY(2px);
+}
+
+/* キーボード操作 */
+.key.active {
+  transform: translateY(2px);
+}
+
+/* ===== White Keys ===== */
+
+.white-keys {
+  display: flex;
 }
 
 .key.white {
@@ -116,3 +125,72 @@
 [data-note="F#5"] { left: calc(896px + 64px * 4 - 20px); }
 [data-note="G#5"] { left: calc(896px + 64px * 5 - 20px); }
 [data-note="A#5"] { left: calc(896px + 64px * 6 - 20px); }
+
+/* ===== Key Label（キーボード表示） ===== */
+
+.key-label {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.key.white .key-label {
+  color: #333;
+}
+
+.key.black .key-label {
+  color: #fff;
+  bottom: 8px;
+}
+
+.keyboard-note {
+  margin-top: 50px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* ===== Learn Page Title ===== */
+
+.learn-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ===== Clear Page ===== */
+.clear-message {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* ===== Song Select ===== */
+
+.song-select-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.song-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.song-list li {
+  margin: 8px 0;
+}
+
+.song-list a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}
+
+.song-list a:hover {
+  text-decoration: underline;
+}

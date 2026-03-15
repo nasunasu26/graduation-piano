@@ -1,78 +1,167 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
+
   connect() {
-    this.AudioContext = window.AudioContext || window.webkitAudioContext;
-    this.audioContext = null;
 
-    // 同時発音（和音）管理
-    this.activeOscillators = new Map();
+    // ===== 外部から呼べるようにする =====
+    window.playNote = this.playNote.bind(this)
+    window.stopNote = this.stopNote.bind(this)
 
-    console.log("free-play controller connected 🎵");
+    this.AudioContext = window.AudioContext || window.webkitAudioContext
+    this.audioContext = null
+    this.activeOscillators = new Map()
+
+    // ===== AudioContextをユーザー操作で起動 =====
+    document.addEventListener("click", () => {
+
+      if (!this.audioContext) {
+        this.audioContext = new this.AudioContext()
+      }
+
+      if (this.audioContext.state === "suspended") {
+        this.audioContext.resume()
+      }
+
+    }, { once: true })   // ← ここが重要（カッコ）
+
+    // ===== キーボード配列 =====
+    this.keyMap = {
+
+      // Low Octave
+      "1":"C3", "2":"C#3", "3":"D3", "4":"D#3", "5":"E3",
+      "6":"F3", "7":"F#3", "8":"G3", "9":"G#3", "0":"A3",
+      "-":"A#3", "^":"B3",
+
+      // Middle Octave
+      "q":"C4", "w":"C#4", "e":"D4", "r":"D#4", "t":"E4",
+      "y":"F4", "u":"F#4", "i":"G4", "o":"G#4", "p":"A4",
+      "@":"A#4", "[":"B4",
+
+      // High Octave
+      "a":"C5", "s":"C#5", "d":"D5", "f":"D#5", "g":"E5",
+      "h":"F5", "j":"F#5", "k":"G5", "l":"G#5", ";":"A5",
+      ":":"A#5", "]":"B5"
+    }
+
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleKeyUp = this.handleKeyUp.bind(this)
+
+    window.addEventListener("keydown", this.handleKeyDown)
+    window.addEventListener("keyup", this.handleKeyUp)
+
   }
 
+  disconnect() {
+
+    window.removeEventListener("keydown", this.handleKeyDown)
+    window.removeEventListener("keyup", this.handleKeyUp)
+
+  }
+
+  // ===== マウス操作 =====
   down(e) {
-    const note = e.currentTarget.dataset.note;
-    console.log("down:", note);
 
-    if (!note) return;
-    if (this.activeOscillators.has(note)) return;
+    const note = e.currentTarget.dataset.note
+    this.playNote(note)
 
-    if (!this.audioContext) this.audioContext = new this.AudioContext();
-    if (this.audioContext.state === "suspended") this.audioContext.resume();
-
-    const freq = this.noteToFrequency(note);
-    if (!freq) return;
-
-    const osc = this.audioContext.createOscillator();
-    osc.type = "triangle";
-    osc.frequency.value = freq;
-
-    const gain = this.audioContext.createGain();
-    gain.gain.value = 0.15;
-
-    osc.connect(gain);
-    gain.connect(this.audioContext.destination);
-    osc.start();
-
-    this.activeOscillators.set(note, { osc, gain });
   }
 
   up(e) {
-    const note = e.currentTarget?.dataset?.note;
-    console.log("up:", note);
 
-    if (!note) return;
+    const note = e.currentTarget.dataset.note
+    this.stopNote(note)
 
-    const obj = this.activeOscillators.get(note);
-    if (!obj) return;
-
-    obj.osc.stop();
-    obj.osc.disconnect();
-    obj.gain.disconnect();
-
-    this.activeOscillators.delete(note);
   }
 
-  // ===== 音名 + オクターブ → 周波数（平均律）=====
+  // ===== キーボード操作 =====
+  handleKeyDown(e) {
+
+    if (e.repeat) return
+
+    const note = this.keyMap[e.key.toLowerCase()]
+    if (!note) return
+
+    this.playNote(note)
+
+  }
+
+  handleKeyUp(e) {
+
+    const note = this.keyMap[e.key.toLowerCase()]
+    if (!note) return
+
+    this.stopNote(note)
+
+  }
+
+  // ===== 再生 =====
+  playNote(note) {
+
+    if (!note || this.activeOscillators.has(note)) return
+
+    if (!this.audioContext) this.audioContext = new this.AudioContext()
+    if (this.audioContext.state === "suspended") this.audioContext.resume()
+
+    const osc = this.audioContext.createOscillator()
+    const gain = this.audioContext.createGain()
+
+    osc.type = "triangle"
+    osc.frequency.value = this.noteToFrequency(note)
+    gain.gain.value = 0.15
+
+    osc.connect(gain)
+    gain.connect(this.audioContext.destination)
+    osc.start()
+
+    this.activeOscillators.set(note, { osc, gain })
+
+    const keyEl = document.querySelector(`.key[data-note="${note}"]`)
+    keyEl?.classList.add("active")
+
+    // 練習モード判定
+    if (window.learnController) {
+      window.learnController.checkAnswer(note)
+    }
+
+  }
+
+  // ===== 停止 =====
+  stopNote(note) {
+
+    const obj = this.activeOscillators.get(note)
+    if (!obj) return
+
+    obj.osc.stop()
+    obj.osc.disconnect()
+    obj.gain.disconnect()
+
+    this.activeOscillators.delete(note)
+
+    const keyEl = document.querySelector(`.key[data-note="${note}"]`)
+    keyEl?.classList.remove("active")
+
+  }
+
+  // ===== 音名 → 周波数 =====
   noteToFrequency(note) {
-    const A4 = 440;
+
+    const A4 = 440
+
     const NOTES = {
       C: -9, "C#": -8,
       D: -7, "D#": -6,
       E: -5,
       F: -4, "F#": -3,
       G: -2, "G#": -1,
-      A: 0,  "A#": 1,
+      A: 0, "A#": 1,
       B: 2
-    };
+    }
 
-    const match = note.match(/^([A-G]#?)(\d)$/);
-    if (!match) return null;
+    const [, pitch, octave] = note.match(/^([A-G]#?)(\d)$/)
 
-    const [, pitch, octave] = match;
-    const semitone = NOTES[pitch] + (parseInt(octave, 10) - 4) * 12;
+    return A4 * Math.pow(2, (NOTES[pitch] + (octave - 4) * 12) / 12)
 
-    return A4 * Math.pow(2, semitone / 12);
   }
+
 }
