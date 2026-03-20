@@ -30,7 +30,14 @@
           type="button"
           class="key black"
           data-note="<%= note %>"
-          data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up">
+          data-action="
+          mousedown->free-play#down
+          mouseup->free-play#up
+          mouseleave->free-play#up
+          touchstart->free-play#down
+          touchend->free-play#up
+          "
+          >
           <span class="key-label"><%= key %></span>
         </button>
       <% end %>
@@ -47,7 +54,14 @@
           type="button"
           class="key white"
           data-note="<%= note %>"
-          data-action="mousedown->free-play#down mouseup->free-play#up mouseleave->free-play#up">
+          data-action="
+          mousedown->free-play#down
+          mouseup->free-play#up
+          mouseleave->free-play#up
+          touchstart->free-play#down
+          touchend->free-play#up
+          "
+          >
           <span class="key-label"><%= key.strip %></span>
         </button>
       <% end %>
