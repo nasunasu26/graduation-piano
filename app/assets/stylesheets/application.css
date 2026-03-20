@@ -100,6 +100,17 @@
   background: #222;
 }
 
+/* 横スクロール対応 */
+.white-keys {
+  display: flex;
+  min-width: max-content;
+}
+
+/* タップ改善 */
+.key {
+  touch-action: manipulation;
+}
+
 /* ===== Black Key Positions ===== */
 /* white key width = 64px */
 /* black key width = 40px */
@@ -156,14 +167,18 @@
 
 /* ===== Learn Page Title ===== */
 
-.learn-title {
+.learn-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-bottom: 10px;
 }
 
 /* ===== Clear Page ===== */
 .clear-message {
   text-align: center;
+  justify-content: center; /* 縦中央 */
+  align-items: center;     /* 横中央 */
   font-size: 18px;
   margin-bottom: 30px;
 }

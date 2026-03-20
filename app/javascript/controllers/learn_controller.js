@@ -20,6 +20,17 @@ export default class extends Controller {
     this.titleTarget.textContent = this.song.title
 
     window.learnController = this
+
+    document.addEventListener("touchstart", () => {
+  if (!this.audioContext) {
+    this.AudioContext = window.AudioContext || window.webkitAudioContext
+    this.audioContext = new this.AudioContext()
+  }
+
+  if (this.audioContext.state === "suspended") {
+    this.audioContext.resume()
+  }
+}, { once: true })
   }
 
   playDemo() {
