@@ -4,26 +4,28 @@ export default class extends Controller {
 
   connect() {
 
-    // ===== 外部から呼べるようにする =====
-    window.playNote = this.playNote.bind(this)
-    window.stopNote = this.stopNote.bind(this)
+  window.playNote = this.playNote.bind(this)
+  window.stopNote = this.stopNote.bind(this)
 
-    this.AudioContext = window.AudioContext || window.webkitAudioContext
-    this.audioContext = null
-    this.activeOscillators = new Map()
+  this.AudioContext = window.AudioContext || window.webkitAudioContext
+  this.audioContext = null
+  this.activeOscillators = new Map()
 
-    // ===== AudioContextをユーザー操作で起動 =====
-    document.addEventListener("click", () => {
+  // 👇ここに置く
+  const startAudio = () => {
 
-      if (!this.audioContext) {
-        this.audioContext = new this.AudioContext()
-      }
+    if (!this.audioContext) {
+      this.audioContext = new this.AudioContext()
+    }
 
-      if (this.audioContext.state === "suspended") {
-        this.audioContext.resume()
-      }
+    if (this.audioContext.state === "suspended") {
+      this.audioContext.resume()
+    }
 
-    }, { once: true })   // ← ここが重要（カッコ）
+  }
+
+  document.addEventListener("click", startAudio, { once: true })
+  document.addEventListener("touchstart", startAudio, { once: true })
 
     // ===== キーボード配列 =====
     this.keyMap = {
