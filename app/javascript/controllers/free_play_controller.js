@@ -63,6 +63,7 @@ export default class extends Controller {
 
   // ===== マウス操作 =====
   down(e) {
+    e.preventDefault()
 
     const note = e.currentTarget.dataset.note
     this.playNote(note)
