@@ -11,7 +11,7 @@ export default class extends Controller {
   this.audioContext = null
   this.activeOscillators = new Map()
 
-  // 👇ここに置く
+  //
   const startAudio = () => {
 
     if (!this.audioContext) {
