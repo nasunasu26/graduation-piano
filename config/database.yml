@@ -17,5 +17,4 @@ test:
   database: graduation_piano_test
 
 production:
-  <<: *default
-  database: graduation_piano_production
+  url: <%= ENV["DATABASE_URL"] %>
