@@ -1,10 +1,25 @@
+<div id="terms-modal" class="hidden" data-controller="terms">
+  <h2>利用規約</h2>
+
+  <p>
+    ・本サービスはピアノ練習を目的としたアプリです。<br>
+    ・イヤホン推奨です。<br>
+    ・音量にご注意ください。
+  </p>
+
+  <button id="agree-button">
+    OK
+  </button>
+</div>
+
 <div class="home-container">
   <h1>Graduation Piano</h1>
 
-<div class="back-link">
+  <div class="back-link">
     <%= link_to "はじめる（自由演奏）", free_play_path, class: "start-button" %>
-</div>
+  </div>
 
-<div class="back-link"> 
+  <div class="back-link">
     <%= link_to "曲を少し覚えるモード", learns_path, class: "menu-link" %>
+  </div>
 </div>

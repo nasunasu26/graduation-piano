@@ -3,7 +3,32 @@
   display: flex;
   flex-direction: column;
   justify-content: center; /* 縦方向の中央 */
-  align-items: center;     /* 横方向の中央 */
-  height: 100vh;           /* 画面の高さぜんぶ使う */
+  align-items: center; /* 横方向の中央 */
+  height: 100vh; /* 画面の高さぜんぶ使う */
   text-align: center;
+}
+
+/* 利用規約モーダル */
+#terms-modal {
+  width: 500px;
+  max-width: 90%;
+  padding: 24px;
+
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 1000;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 非表示用 */
+.hidden {
+  display: none;
 }

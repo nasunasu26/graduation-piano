@@ -54,3 +54,4 @@ group :development do
   gem "web-console"
 end
 
+gem "erb-formatter", require: false

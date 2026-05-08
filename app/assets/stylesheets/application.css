@@ -209,3 +209,7 @@
 .song-list a:hover {
   text-decoration: underline;
 }
+
+.learn-title {
+  text-align: center;
+}
