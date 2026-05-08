@@ -5,17 +5,17 @@ export default class extends Controller {
     const agreeButton = document.getElementById("agree-button")
     const termsModal = document.getElementById("terms-modal")
 
-    // すでに同意済みならモーダルウィンドウを隠す
-    if (localStorage.getItem("termsAccepted") === "true") {
-      termsModal.style.display = "none"
+    // 未同意ならモーダルを表示
+    if (localStorage.getItem("termsAccepted") !== "true") {
+      termsModal.classList.remove("hidden")
     }
 
     agreeButton.addEventListener("click", () => {
       // 同意したことを保存
       localStorage.setItem("termsAccepted", "true")
 
-      // モーダルウィンドウを閉じる
-      termsModal.style.display = "none"
+      // モーダルを閉じる
+      termsModal.classList.add("hidden")
     })
   }
 }
