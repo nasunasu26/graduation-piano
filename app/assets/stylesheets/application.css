@@ -112,9 +112,9 @@
 }
 
 /* タップ改善 */
-.key {
+/*.key {
   touch-action: manipulation;
-}
+}/*
 
 /* ===== Black Key Positions ===== */
 /* white key width = 64px */
