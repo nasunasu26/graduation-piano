@@ -38,11 +38,15 @@
 
 /* ===== Piano Keyboard ===== */
 
+.piano-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .piano {
   position: relative;
-  width: fit-content;
   min-width: 1400px;
-  margin: 0 auto;
   user-select: none;
 }
 
