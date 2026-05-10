@@ -52,6 +52,54 @@ export default class extends Controller {
     window.addEventListener("keydown", this.handleKeyDown)
     window.addEventListener("keyup", this.handleKeyUp)
 
+    // ===== ドラッグスクロール =====
+    this.isDragging = false
+    this.startX = 0
+    this.scrollLeft = 0
+
+    this.scrollArea = this.element.querySelector(".piano-scroll")
+
+    this.scrollArea.addEventListener(
+      "touchstart",
+      this.handleTouchStart.bind(this),
+      { passive: true }
+    )
+
+    this.scrollArea.addEventListener(
+      "touchmove",
+      this.handleTouchMove.bind(this),
+      { passive: true }
+    )
+
+    this.scrollArea.addEventListener(
+      "touchend",
+      this.handleTouchEnd.bind(this)
+    )
+  }
+
+  handleTouchStart(e) {
+
+    this.isDragging = true
+    this.startX = e.touches[0].pageX
+    this.scrollLeft = this.scrollArea.scrollLeft
+
+  }
+
+  handleTouchMove(e) {
+
+    if (!this.isDragging) return
+
+    const x = e.touches[0].pageX
+    const walk = this.startX - x
+
+    this.scrollArea.scrollLeft = this.scrollLeft + walk
+
+  }
+
+  handleTouchEnd() {
+
+    this.isDragging = false
+
   }
 
   disconnect() {

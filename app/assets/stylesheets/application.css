@@ -42,6 +42,7 @@
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* スクロールの慣性を有効にする（iOS） */
 }
 
 .piano {
@@ -112,9 +113,9 @@
 }
 
 /* タップ改善 */
-/*.key {
+.key {
   touch-action: manipulation;
-}/*
+}
 
 /* ===== Black Key Positions ===== */
 /* white key width = 64px */
