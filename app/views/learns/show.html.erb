@@ -1,8 +1,10 @@
 <h1 class="learn-title">曲を少し覚えるモード</h1>
 
-<div class="free-play-container"
-     data-controller="learn free-play"
-     data-learn-song-value="<%= @song %>">
+<div
+  class="free-play-container"
+  data-controller="learn free-play"
+  data-learn-song-value="<%= @song %>"
+>
 
   <h2 data-learn-target="title"></h2>
 
@@ -18,53 +20,54 @@
     <%= link_to "← スタート画面に戻る", root_path %>
   </div>
 
-  <div class="piano">
-    <!-- ===== 黒鍵 ===== -->
-    <div class="black-keys">
-      <% {
+  <div class="piano-scroll">
+    <div class="piano">
+      <!-- ===== 黒鍵 ===== -->
+      <div class="black-keys">
+        <% {
         "C#3"=>"2","D#3"=>"4","F#3"=>"7","G#3"=>"9","A#3"=>"-",
         "C#4"=>"w","D#4"=>"r","F#4"=>"u","G#4"=>"o","A#4"=>"@",
         "C#5"=>"s","D#5"=>"f","F#5"=>"j","G#5"=>"l","A#5"=>":"
       }.each do |note, key| %>
-        <button
-          type="button"
-          class="key black"
-          data-note="<%= note %>"
-          data-action="
-          mousedown->free-play#down
-          mouseup->free-play#up
-          mouseleave->free-play#up
-          touchstart->free-play#down
-          touchend->free-play#up
-          "
+          <button
+            type="button"
+            class="key black"
+            data-note="<%= note %>"
+            data-action="
+              mousedown->free-play#down
+              mouseup->free-play#up
+              mouseleave->free-play#up
+              touchstart->free-play#down
+              touchend->free-play#up
+            "
           >
-          <span class="key-label"><%= key %></span>
-        </button>
-      <% end %>
-    </div>
-
-    <!-- ===== 白鍵 ===== -->
-    <div class="white-keys">
-      <% {
+            <span class="key-label"><%= key %></span>
+          </button>
+        <% end %>
+      </div>
+      <!-- ===== 白鍵 ===== -->
+      <div class="white-keys">
+        <% {
         "C3"=>"1","D3"=>"3","E3"=>"5","F3"=>"6","G3"=>"8","A3"=>"0","B3"=>"^",
         "C4"=>"q","D4"=>"e","E4"=>"t","F4"=>"y","G4"=>"i","A4"=>"p","B4"=>"[",
         "C5"=>"a","D5"=>"d","E5"=>"g","F5"=>"h","G5"=>"k","A5"=>";","B5"=>"]"
       }.each do |note, key| %>
-        <button
-          type="button"
-          class="key white"
-          data-note="<%= note %>"
-          data-action="
-          mousedown->free-play#down
-          mouseup->free-play#up
-          mouseleave->free-play#up
-          touchstart->free-play#down
-          touchend->free-play#up
-          "
+          <button
+            type="button"
+            class="key white"
+            data-note="<%= note %>"
+            data-action="
+              mousedown->free-play#down
+              mouseup->free-play#up
+              mouseleave->free-play#up
+              touchstart->free-play#down
+              touchend->free-play#up
+            "
           >
-          <span class="key-label"><%= key.strip %></span>
-        </button>
-      <% end %>
+            <span class="key-label"><%= key.strip %></span>
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
 
