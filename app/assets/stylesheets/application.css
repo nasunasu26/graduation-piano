@@ -3,6 +3,11 @@
  *= require_self
  */
 
+/* ===== Font ===== */
+body {
+  font-family: "Kaisei Decol", serif;
+}
+
 /* ===== Back Link Style ===== */
 
 .back-link {
