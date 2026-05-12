@@ -1,11 +1,56 @@
-/* ページ全体を中央寄せ */
+/* ===== ホームページスタイル ===== */
 .home-container {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: 0 24px;
+
+  min-height: 100vh;
+}
+
+.service-copy {
+  margin: 64px 0 72px;
+
+  color: #666;
+}
+
+.service-copy p {
+  margin: 10px 0;
+
+  font-size: 18px;
+  letter-spacing: 0.08em;
+}
+
+.service-title {
+  margin-top: 20px;
+
+  font-size: 22px;
+  color: #222;
+
+  letter-spacing: 0.06em;
+}
+
+.menu-link {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+
+  margin: 32px 0;
+}
+
+.menu-link a {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* 縦方向の中央 */
-  align-items: center; /* 横方向の中央 */
-  height: 100vh; /* 画面の高さぜんぶ使う */
-  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 28px 12px;
+
+  color: #222;
+  text-decoration: none;
+
+  font-size: 28px;
 }
 
 /* 利用規約モーダル */

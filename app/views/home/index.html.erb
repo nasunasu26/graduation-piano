@@ -13,13 +13,28 @@
 </div>
 
 <div class="home-container">
-  <h1>Graduation Piano</h1>
+  <div class="service-copy">
+    <p>・ログインなし</p>
+    <p>・インストールなし</p>
+    <p>・すぐに弾ける</p>
 
-  <div class="back-link">
-    <%= link_to "はじめる（自由演奏）", free_play_path, class: "start-button" %>
+  <div class="service-title">
+    気楽なピアノ♩
+  </div>
   </div>
 
-  <div class="back-link">
-    <%= link_to "曲を少し覚えるモード", learns_path, class: "menu-link" %>
+  <div class="menu-link">
+    <%= link_to free_play_path do %>
+      <span>はじめる（自由演奏モード）</span>
+      <span>＞</span>
+    <% end %>
   </div>
+
+  <div class="menu-link">
+    <%= link_to learns_path do %>
+      <span>曲を少し覚えるモード</span>
+      <span>＞</span>
+    <% end %>
+  </div>
+
 </div>

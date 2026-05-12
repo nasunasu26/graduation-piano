@@ -8,6 +8,30 @@ body {
   font-family: "Kaisei Decol", serif;
 }
 
+/* ===== Logo ===== */
+
+.site-logo {
+  height: 80px;
+  width: auto;
+
+  display: block;
+}
+
+/* ===== Header Style ===== */
+
+.site-header {
+  background: #F5F8CC;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 12px;
+}
+
 /* ===== Back Link Style ===== */
 
 .back-link {

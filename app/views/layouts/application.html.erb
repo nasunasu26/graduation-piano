@@ -12,12 +12,17 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
-  </head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap"
+      rel="stylesheet"
+    >
 
+    <%= favicon_link_tag "favicon.ico" %>
+    
+  </head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8YZJ8V3RJ"></script>
-<script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8YZJ8V3RJ"></script>
+  <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -26,6 +31,17 @@
   </script>
 
   <body>
+
+    <header class="site-header">
+
+      <div class="header-inner">
+        <%= image_tag "logo.png", class: "site-logo" %>
+      </div>
+
+    </header>
+
     <%= yield %>
+
   </body>
+
 </html>
