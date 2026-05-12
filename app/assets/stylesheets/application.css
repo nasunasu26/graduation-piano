@@ -3,6 +3,14 @@
  *= require_self
  */
 
+/* ===== Global Layout ===== */
+
+.site-header,
+.site-footer {
+  width: 100%;
+  padding: 0 24px;
+}
+
 /* ===== Font ===== */
 body {
   font-family: "Kaisei Decol", serif;
@@ -308,8 +316,22 @@ body {
   }
 
   .header-inner {
-    gap: 8px;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
     padding: 20px;
+  }
+
+  .site-footer {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .site-footer p {
+    margin: 0 auto;
   }
 
   .site-logo {
@@ -324,7 +346,5 @@ body {
     font-size: 22px;
     padding: 16px 12px;
   }
-
-  
 
 }
