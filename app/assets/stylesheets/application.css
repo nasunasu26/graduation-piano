@@ -26,6 +26,20 @@ body {
   background: #F5F8CC;
 }
 
+/* ===== Footer Style ===== */
+
+.site-footer {
+  background: #F5F8CC;
+  margin-top: 10px;
+  padding: 10px 24px;
+
+  border-top: 1px solid #ddd;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
 /* ===== Logo ===== */
 
 .site-logo {
@@ -292,5 +306,25 @@ body {
   .piano {
     min-width: 1050px;
   }
+
+  .header-inner {
+    gap: 8px;
+    padding: 20px;
+  }
+
+  .site-logo {
+    height: 32px;
+  }
+
+  .site-title {
+    font-size: 32px;
+  }
+
+  .menu-link a {
+    font-size: 22px;
+    padding: 16px 12px;
+  }
+
+  
 
 }
