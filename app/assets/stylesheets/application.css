@@ -11,9 +11,10 @@
   padding: 0 24px;
 }
 
-/* ===== Font ===== */
+/* ===== body ===== */
 body {
   font-family: "Kaisei Decol", serif;
+  margin: 0;
 }
 
 /* ===== Header Style ===== */

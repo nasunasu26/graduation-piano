@@ -7,6 +7,8 @@
   padding: 0 24px;
 
   min-height: 100vh;
+
+  box-sizing: border-box;
 }
 
 .service-copy {
@@ -82,4 +84,12 @@
 /* 非表示用 */
 .hidden {
   display: none;
+}
+
+/* スマホトップページメニュー */
+
+@media (max-width: 768px) {
+  .menu-list {
+    grid-template-columns: 1fr;
+  }
 }
