@@ -17,16 +17,16 @@
 }
 
 .service-copy p {
-  margin: 10px 0;
+  margin: 8px 0;
 
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.08em;
 }
 
 .service-title {
-  margin-top: 20px;
+  margin-top: 15px;
 
-  font-size: 22px;
+  font-size: 20px;
   color: #222;
 
   letter-spacing: 0.06em;
@@ -45,13 +45,18 @@
   align-items: center;
 
   width: 100%;
+  box-sizing: border-box;
 
   padding: 20px 12px;
 
   color: #222;
   text-decoration: none;
 
-  font-size: 28px;
+  font-size: 24px;
+}
+
+.menu-link a:hover {
+  opacity: 0.6;
 }
 
 .menu-list {

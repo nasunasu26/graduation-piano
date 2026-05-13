@@ -65,8 +65,8 @@ body {
 /* ===== Back Link Style ===== */
 
 .back-link {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 36px;
+  margin-bottom: 48px;
 }
 
 .back-link a {
@@ -87,7 +87,7 @@ body {
 
 .free-play-container {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 48px;
 }
 
 .free-play-container h1 {
@@ -100,13 +100,14 @@ body {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  margin-top: 48px;
   padding-bottom: 12px;
   -webkit-overflow-scrolling: touch; /* スクロールの慣性を有効にする（iOS） */
 }
 
 .piano {
   position: relative;
-  min-width: 1400px;
+  min-width: max-content;
   width: fit-content;
   margin: 0 auto;
   user-select: none;
@@ -148,7 +149,7 @@ body {
 }
 
 .key.white.active {
-  background: #ececec;
+  background: #eeeeee;
 }
 
 /* ===== Black Keys ===== */
@@ -172,7 +173,7 @@ body {
 }
 
 .key.black.active {
-  background: #222;
+  background: #4b4b4b;
 }
 
 /* 横スクロール対応 */
@@ -235,8 +236,8 @@ body {
 }
 
 .keyboard-note {
-  margin-top: 50px;
-  font-size: 12px;
+  margin-top: 28px;
+  font-size: 16px;
   opacity: 0.6;
 }
 
