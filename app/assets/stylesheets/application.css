@@ -63,23 +63,22 @@ body {
 /* ===== Back Link Style ===== */
 
 .back-link {
-  margin-bottom: 30px;
-  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .back-link a {
-  display: inline-block;
-  padding: 6px 12px;
+  color: #666;
   text-decoration: none;
-  color: #4b3cc4;
-  font-weight: bold;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+
+  font-size: 20px;
+  letter-spacing: 0.05em;
+
+  transition: opacity 0.15s ease;
 }
 
 .back-link a:hover {
-  text-decoration: underline;
-  background-color: rgba(75, 60, 196, 0.08);
+  opacity: 0.6;
 }
 
 /* ===== Page Center Layout ===== */
@@ -99,6 +98,7 @@ body {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  padding-bottom: 12px;
   -webkit-overflow-scrolling: touch; /* スクロールの慣性を有効にする（iOS） */
 }
 
@@ -114,7 +114,7 @@ body {
 
 .key {
   position: relative; /* ラベル配置用 */
-  border: 1px solid #999;
+  border: 1px solid #d3d3d3;
   cursor: pointer;
   transition: transform 0.05s ease;
 }
@@ -137,10 +137,16 @@ body {
 
 .key.white {
   width: 64px;
-  height: 220px;
+  height: 250px;
   background: #fff;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
   font-size: 0;
+
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.key.white.active {
+  background: #ececec;
 }
 
 /* ===== Black Keys ===== */
@@ -156,12 +162,14 @@ body {
 .key.black {
   position: absolute;
   width: 40px;
-  height: 140px;
+  height: 150px;
   background: #111;
   border-radius: 0 0 6px 6px;
+
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
 }
 
-.key.black:hover {
+.key.black.active {
   background: #222;
 }
 

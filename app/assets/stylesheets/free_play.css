@@ -1,8 +1,9 @@
 .free-play-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 縦中央 */
-  align-items: center;     /* 横中央 */
-  height: 100vh;
+  margin-top: 40px;
   text-align: center;
+}
+
+.free-play-container h1 {
+  font-weight: normal;
+  letter-spacing: 0.08em;
 }
