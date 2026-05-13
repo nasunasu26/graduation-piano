@@ -18,23 +18,27 @@
     <p>・インストールなし</p>
     <p>・すぐに弾ける</p>
 
-  <div class="service-title">
-    気楽なピアノ♩
-  </div>
-  </div>
-
-  <div class="menu-link">
-    <%= link_to free_play_path do %>
-      <span>はじめる（自由演奏モード）</span>
-      <span>＞</span>
-    <% end %>
+    <div class="service-title">
+      気楽なピアノ♩
+    </div>
   </div>
 
-  <div class="menu-link">
-    <%= link_to learns_path do %>
-      <span>曲を少し覚えるモード</span>
-      <span>＞</span>
-    <% end %>
+  <div class="menu-list">
+
+    <div class="menu-link">
+      <%= link_to free_play_path do %>
+        <span>はじめる（自由演奏モード）</span>
+        <span>＞</span>
+      <% end %>
+    </div>
+
+    <div class="menu-link">
+      <%= link_to learns_path do %>
+        <span>曲を少し覚えるモード</span>
+        <span>＞</span>
+      <% end %>
+    </div>
+
   </div>
 
 </div>
