@@ -7,6 +7,7 @@
 
 .site-header,
 .site-footer {
+  width: 100%;
   padding: 0 24px;
 
   box-sizing: border-box;
@@ -331,7 +332,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    gap: 12px;
+    gap: 8px;
     padding: 20px 24px;
   }
 
