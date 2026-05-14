@@ -241,15 +241,6 @@ body {
   opacity: 0.6;
 }
 
-/* ===== Learn Page Title ===== */
-
-.learn-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
 /* ===== Clear Page ===== */
 .clear-message {
   text-align: center;
@@ -257,37 +248,6 @@ body {
   align-items: center;     /* 横中央 */
   font-size: 18px;
   margin-bottom: 30px;
-}
-
-/* ===== Song Select ===== */
-
-.song-select-title {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.song-list {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.song-list li {
-  margin: 8px 0;
-}
-
-.song-list a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #333;
-}
-
-.song-list a:hover {
-  text-decoration: underline;
-}
-
-.learn-title {
-  text-align: center;
 }
 
 /* スマホ用表示調整 */
