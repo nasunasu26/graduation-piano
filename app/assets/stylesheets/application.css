@@ -128,8 +128,11 @@ body {
 }
 
 /* キーボード操作 */
-.key.active {
-  transform: translateY(2px);
+.key.active,
+.key:active {
+  transform: translateY(6px);
+
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 /* ===== White Keys ===== */
@@ -149,7 +152,7 @@ body {
 }
 
 .key.white.active {
-  background: #eeeeee;
+  background: #f1f6eb;
 }
 
 /* ===== Black Keys ===== */
@@ -173,7 +176,7 @@ body {
 }
 
 .key.black.active {
-  background: #4b4b4b;
+  background: #84877f;
 }
 
 /* 横スクロール対応 */
@@ -255,36 +258,36 @@ body {
 @media (max-width: 768px) {
 
   .key.white {
-    width: 48px;
-    height: 180px;
+    width: 40px;
+    height: 160px;
   }
 
   .key.black {
-    width: 32px;
-    height: 110px;
+    width: 26px;
+    height: 100px;
   }
 
   /* 黒鍵位置調整 */
-  [data-note="C#3"] { left: calc(48px * 1 - 16px); }
-  [data-note="D#3"] { left: calc(48px * 2 - 16px); }
-  [data-note="F#3"] { left: calc(48px * 4 - 16px); }
-  [data-note="G#3"] { left: calc(48px * 5 - 16px); }
-  [data-note="A#3"] { left: calc(48px * 6 - 16px); }
+  [data-note="C#3"] { left: calc(40px * 1 - 13px); }
+  [data-note="D#3"] { left: calc(40px * 2 - 13px); }
+  [data-note="F#3"] { left: calc(40px * 4 - 13px); }
+  [data-note="G#3"] { left: calc(40px * 5 - 13px); }
+  [data-note="A#3"] { left: calc(40px * 6 - 13px); }
 
-  [data-note="C#4"] { left: calc(336px + 48px * 1 - 16px); }
-  [data-note="D#4"] { left: calc(336px + 48px * 2 - 16px); }
-  [data-note="F#4"] { left: calc(336px + 48px * 4 - 16px); }
-  [data-note="G#4"] { left: calc(336px + 48px * 5 - 16px); }
-  [data-note="A#4"] { left: calc(336px + 48px * 6 - 16px); }
+  [data-note="C#4"] { left: calc(280px + 40px * 1 - 13px); }
+  [data-note="D#4"] { left: calc(280px + 40px * 2 - 13px); }
+  [data-note="F#4"] { left: calc(280px + 40px * 4 - 13px); }
+  [data-note="G#4"] { left: calc(280px + 40px * 5 - 13px); }
+  [data-note="A#4"] { left: calc(280px + 40px * 6 - 13px); }
 
-  [data-note="C#5"] { left: calc(672px + 48px * 1 - 16px); }
-  [data-note="D#5"] { left: calc(672px + 48px * 2 - 16px); }
-  [data-note="F#5"] { left: calc(672px + 48px * 4 - 16px); }
-  [data-note="G#5"] { left: calc(672px + 48px * 5 - 16px); }
-  [data-note="A#5"] { left: calc(672px + 48px * 6 - 16px); }
+  [data-note="C#5"] { left: calc(560px + 40px * 1 - 13px); }
+  [data-note="D#5"] { left: calc(560px + 40px * 2 - 13px); }
+  [data-note="F#5"] { left: calc(560px + 40px * 4 - 13px); }
+  [data-note="G#5"] { left: calc(560px + 40px * 5 - 13px); }
+  [data-note="A#5"] { left: calc(560px + 40px * 6 - 13px); }
 
   .piano {
-    min-width: 1050px;
+    min-width: 880px;
   }
 
   .header-inner {

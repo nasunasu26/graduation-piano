@@ -4,6 +4,36 @@
 }
 
 .free-play-container h1 {
+  margin-top: 48px;
   font-weight: normal;
   letter-spacing: 0.08em;
+  text-align: center;
+  position: relative;
+
+  margin-bottom: 72px;
+
+  letter-spacing: 0.08em;
+}
+
+/* 下の斜線ライン */
+
+.free-play-container h1::after {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  max-width: 900px;
+
+  height: 8px;
+
+  margin: 32px auto 0;
+
+  background: repeating-linear-gradient(
+    -45deg,
+    #F5F8CC,
+    #F5F8CC 4px,
+    transparent 4px,
+    transparent 8px
+  );
 }

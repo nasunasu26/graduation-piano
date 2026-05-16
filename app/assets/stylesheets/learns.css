@@ -13,6 +13,34 @@
   font-weight: normal;
   letter-spacing: 0.08em;
   text-align: center;
+  position: relative;
+
+  margin-bottom: 72px;
+
+  letter-spacing: 0.08em;
+}
+
+/* 下の斜線ライン */
+
+.learn-title::after {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  max-width: 900px;
+
+  height: 8px;
+
+  margin: 32px auto 0;
+
+  background: repeating-linear-gradient(
+    -45deg,
+    #F5F8CC,
+    #F5F8CC 4px,
+    transparent 4px,
+    transparent 8px
+  );
 }
 
 /* ===== 曲一覧 ===== */
@@ -48,8 +76,68 @@
   opacity: 0.6;
 }
 
+.learn-song-name {
+  margin: 48px;
+  font-weight: normal;
+}
+
 .back-link {
   text-align: center;
+}
+
+.button-01 button {
+  font-family: "Kaisei Decol", serif;
+
+  font-size: 14px;
+  letter-spacing: 0.1em;
+
+  color: #333;
+  font-weight: 400;
+
+  outline: 1px solid #333;
+
+  background: transparent;
+  border: none;
+
+  display: block;
+  position: relative;
+
+  box-sizing: border-box;
+
+  padding: 16px 48px;
+
+  margin: 32px auto;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  z-index: 999;
+
+  transition: all 0.3s;
+}
+
+.button-01 button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 6px;
+  left: 6px;
+
+  width: 100%;
+  height: 100%;
+
+  background: #f1f6eb;
+
+  z-index: -1;
+
+  transition: all 0.3s ease;
+}
+
+.button-01 button:hover::before {
+  top: 0;
+  left: 0;
 }
 
 /* ===== スマホ ===== */

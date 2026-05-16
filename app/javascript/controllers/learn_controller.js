@@ -16,6 +16,7 @@ export default class extends Controller {
     this.notes = this.song.notes
 
     this.currentIndex = 0
+    this.isPlayingDemo = false
 
     this.titleTarget.textContent = this.song.title
 
@@ -34,9 +35,11 @@ export default class extends Controller {
   }
 
   playDemo() {
+    if (this.mode === "demo") return
+
     this.mode = "demo"
     this.currentIndex = 0
-
+    this.isPlayingDemo = true
     this.messageTarget.textContent = "お手本を再生中..."
 
     let i = 0
@@ -44,6 +47,7 @@ export default class extends Controller {
     const playNext = () => {
 
       if (i >= this.notes.length) {
+        this.isPlayingDemo = false
         this.mode = "playing"
         this.messageTarget.textContent = "弾いてみましょう！"
         return

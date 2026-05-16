@@ -6,15 +6,20 @@
   data-learn-song-value="<%= @song %>"
 >
 
-  <h2 data-learn-target="title"></h2>
-
-  <button data-action="click->learn#playDemo">
-    お手本を聴く
-  </button>
+<h2
+  class="learn-song-name"
+  data-learn-target="title"
+></h2>
 
   <p data-learn-target="message">
     「お手本を聴く」を押して覚えましょう
   </p>
+
+<div class="button-01">
+  <button data-action="click->learn#playDemo">
+    お手本を聴く
+  </button>
+</div>
 
   <div class="piano-scroll">
     <div class="piano">
