@@ -1,0 +1,80 @@
+.clear-page {
+  text-align: center;
+}
+
+.clear-title {
+  margin-top: 72px;
+  margin-bottom: 40px;
+
+  font-size: 32px;
+  letter-spacing: 0.08em;
+
+  color: #222;
+}
+
+.clear-message {
+  margin-bottom: 48px;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+
+  color: #333;
+}
+
+.clear-symbol {
+  margin-top: -16px;
+  margin-bottom: 32px;
+
+  color: #d8c27a;
+
+  letter-spacing: 0.3em;
+
+  font-size: 20px;
+}
+
+.clear-song-title {
+  font-size: 26px;
+
+  color: #8A6E5F;
+
+  letter-spacing: 0.08em;
+}
+
+.clear-visual {
+  margin-bottom: 48px;
+}
+
+.clear-visual img {
+  width: 100%;
+  max-width: 720px;
+
+  height: auto;
+
+  display: block;
+  margin: 0 auto;
+
+  opacity: 0.9;
+}
+
+.clear-page .back-link-top {
+  margin-top: 48px;
+  margin-bottom: 0px;
+}
+
+.clear-page .back-link-top a {
+  color: #666;
+  text-decoration: none;
+
+  font-size: 20px;
+  letter-spacing: 0.05em;
+
+  transition: opacity 0.15s ease;
+}
+
+.clear-page .back-link-top a:hover {
+  opacity: 0.6;
+}
+
+.clear-page .back-link {
+  margin-top: 24px;
+  margin-bottom: 48px;
+}

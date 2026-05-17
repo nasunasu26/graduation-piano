@@ -2,6 +2,7 @@
 
 .learn-page {
   max-width: 900px;
+  padding: 0 24px;
 
   margin: 0 auto;
 
@@ -140,12 +141,70 @@
   left: 0;
 }
 
+.key.hint {
+  animation: hintBlink 1.8s ease 2;
+}
+
+@keyframes hintBlink {
+
+  0% {
+    background: #fffbc9;
+  }
+
+  50% {
+    background: inherit;
+  }
+
+  100% {
+    background: #fffbc9;
+  }
+
+}
+
+.learn-back-link {
+  margin-top: 48px;
+  margin-bottom: 12px;
+
+  text-align: center;
+}
+
+.learn-back-link a {
+  color: #666;
+  text-decoration: none;
+
+  font-size: 20px;
+  letter-spacing: 0.05em;
+
+  transition: opacity 0.15s ease;
+}
+
+.learn-back-link a:hover {
+  opacity: 0.6;
+}
+
+.learn-back-link-last {
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.learn-back-link-last a {
+  color: #666;
+  text-decoration: none;
+
+  font-size: 20px;
+  letter-spacing: 0.05em;
+
+  transition: opacity 0.15s ease;
+}
+
+.learn-back-link-last a:hover {
+  opacity: 0.6;
+}
+
 /* ===== スマホ ===== */
 
 @media (max-width: 768px) {
-
   .learn-song-list {
     grid-template-columns: 1fr;
   }
-
 }

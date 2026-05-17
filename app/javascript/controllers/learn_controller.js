@@ -16,6 +16,7 @@ export default class extends Controller {
     this.notes = this.song.notes
 
     this.currentIndex = 0
+    this.checkpointIndex = 0
     this.isPlayingDemo = false
 
     this.titleTarget.textContent = this.song.title
@@ -23,22 +24,22 @@ export default class extends Controller {
     window.learnController = this
 
     document.addEventListener("touchstart", () => {
-  if (!this.audioContext) {
-    this.AudioContext = window.AudioContext || window.webkitAudioContext
-    this.audioContext = new this.AudioContext()
-  }
+      if (!this.audioContext) {
+        this.AudioContext = window.AudioContext || window.webkitAudioContext
+        this.audioContext = new this.AudioContext()
+      }
 
-  if (this.audioContext.state === "suspended") {
-    this.audioContext.resume()
-  }
-}, { once: true })
+      if (this.audioContext.state === "suspended") {
+        this.audioContext.resume()
+      }
+    }, { once: true })
   }
 
   playDemo() {
     if (this.mode === "demo") return
 
     this.mode = "demo"
-    this.currentIndex = 0
+    this.currentIndex = this.checkpointIndex
     this.isPlayingDemo = true
     this.messageTarget.textContent = "お手本を再生中..."
 
@@ -60,6 +61,39 @@ export default class extends Controller {
       if (window.playNote) {
         window.playNote(note)
 
+        const key =
+          document.querySelector(`[data-note="${note}"]`)
+
+        const pianoScroll =
+          document.querySelector(".piano-scroll")
+
+        if (key && pianoScroll) {
+
+          const keyLeft = key.offsetLeft
+          const keyRight = keyLeft + key.offsetWidth
+
+          const scrollLeft = pianoScroll.scrollLeft
+          const visibleRight =
+            scrollLeft + pianoScroll.clientWidth
+
+          // 左にはみ出た
+          if (keyLeft < scrollLeft) {
+
+            pianoScroll.scrollTo({
+              left: keyLeft - 40,
+              behavior: "smooth"
+            })
+
+            // 右にはみ出た
+          } else if (keyRight > visibleRight) {
+
+            pianoScroll.scrollTo({
+              left: keyRight - pianoScroll.clientWidth + 40,
+              behavior: "smooth"
+            })
+          }
+        }
+        
         setTimeout(() => {
           if (window.stopNote) {
             window.stopNote(note)
@@ -85,6 +119,13 @@ export default class extends Controller {
 
       this.currentIndex++
 
+      this.messageTarget.textContent =
+        `${this.currentIndex} / ${this.notes.length} 音クリア`
+
+      if (this.currentIndex % 4 === 0) {
+        this.checkpointIndex = this.currentIndex
+      }
+
       if (this.currentIndex >= this.notes.length) {
 
         this.mode = "clear"
@@ -99,12 +140,24 @@ export default class extends Controller {
 
     } else {
 
-      this.currentIndex = 0
-      this.mode = "idle"
+      this.currentIndex = this.checkpointIndex
 
-      this.messageTarget.textContent = "惜しい！もう一度お手本を聴いてみましょう！"
+      this.messageTarget.textContent =
+        "惜しい！もう一度できたところからやり直しましょう！（わからなくなったら、お手本を聴きなおしてみてください！）"
 
+      const nextNote =
+        this.notes[this.currentIndex].note
+
+      const key =
+        document.querySelector(`[data-note="${nextNote}"]`)
+
+      if (key) {
+        key.classList.add("hint")
+
+        setTimeout(() => {
+          key.classList.remove("hint")
+        }, 3600)
+      }
     }
   }
-
 }

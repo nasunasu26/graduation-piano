@@ -244,15 +244,6 @@ body {
   opacity: 0.6;
 }
 
-/* ===== Clear Page ===== */
-.clear-message {
-  text-align: center;
-  justify-content: center; /* 縦中央 */
-  align-items: center;     /* 横中央 */
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
 /* スマホ用表示調整 */
 
 @media (max-width: 768px) {
@@ -320,6 +311,11 @@ body {
   .menu-link a {
     font-size: 22px;
     padding: 16px 12px;
+  }
+
+  .learn-title,
+  .free-play-container h1 {
+    font-size: 24px;
   }
 
 }

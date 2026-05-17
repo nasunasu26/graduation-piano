@@ -65,6 +65,22 @@
   gap: 24px;
 }
 
+.top-visual {
+  margin-top: 72px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.top-visual img {
+  width: 100%;
+  max-width: 720px;
+
+  opacity: 0.9;
+
+  display: block;
+}
+
 /* 利用規約モーダル */
 #terms-modal {
   width: 500px;

@@ -1,15 +1,28 @@
-<div style="text-align: center;">
+<div class="clear-page">
 
-<h1 class="learn-title">おめでとうございます！</h1>
+  <p class="clear-title">
+    おめでとうございます！
+  </p>
 
-<p class="clear-message">
-「<%= @song_title %>」を少し覚えました！
-</p>
+  <p class="clear-symbol">
+    ♪ ♩ ♫
+  </p>
 
-<div class="back-link">
+  <p class="clear-message">
+    「<span class="clear-song-title"><%= @song_title %></span>」を少し覚えました！
+  </p>
+
+  <div class="clear-visual">
+    <%= image_tag "nekotoonpu.png", alt: "猫と音符のイラスト" %>
+  </div>
+
+
+  <div class="back-link-top">
+    <%= link_to "曲選択画面に戻る", learns_path %>
+  </div>
+
+  <div class="back-link">
     <%= link_to "トップに戻る", root_path %>
-</div>
+  </div>
 
-<div class="back-link">
-    <%= link_to "他の曲を覚えてみる", learns_path %>
 </div>
