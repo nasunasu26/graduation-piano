@@ -1,3 +1,13 @@
+<% solfege_map = {
+  "C" => "ド",
+  "D" => "レ",
+  "E" => "ミ",
+  "F" => "ファ",
+  "G" => "ソ",
+  "A" => "ラ",
+  "B" => "シ",
+} %>
+
 <div class="free-play-container" data-controller="free-play">
   <h1>自由演奏モード</h1>
 
@@ -32,13 +42,17 @@
       <!-- ===== 白鍵 ===== -->
       <div class="white-keys">
         <% {
-        # Octave 3（低）
-        "C3"=>"1","D3"=>"3","E3"=>"5","F3"=>"6","G3"=>"8","A3"=>"0","B3"=>"^",
-        # Octave 4（中）
-        "C4"=>"q","D4"=>"e","E4"=>"t","F4"=>"y","G4"=>"i","A4"=>"p","B4"=>"[",
-        # Octave 5（高）
-        "C5"=>"a","D5"=>"d","E5"=>"g","F5"=>"h","G5"=>"k","A5"=>" ; ","B5"=>"]"
-      }.each do |note, key| %>
+    # Octave 3（低）
+    "C3"=>"1","D3"=>"3","E3"=>"5","F3"=>"6","G3"=>"8","A3"=>"0","B3"=>"^",
+
+    # Octave 4（中）
+    "C4"=>"q","D4"=>"e","E4"=>"t","F4"=>"y","G4"=>"i","A4"=>"p","B4"=>"[",
+
+    # Octave 5（高）
+    "C5"=>"a","D5"=>"d","E5"=>"g","F5"=>"h","G5"=>"k","A5"=>" ; ","B5"=>"]"
+
+  }.each do |note, key| %>
+
           <button
             type="button"
             class="key white"
@@ -51,19 +65,47 @@
               touchend->free-play#up
             "
           >
-            <span class="key-label"><%= key.strip %></span>
+
+            <span class="solfege-label">
+              <%= solfege_map[note[0]] %>
+            </span>
+
+            <span class="key-label">
+              <%= key.strip %>
+            </span>
+
           </button>
+
         <% end %>
+
       </div>
+
+      <div class="display-settings">
+
+        <div class="display-card">
+          <div class="display-card-text">
+            <p class="display-card-main">
+              ドレミ表示
+            </p>
+            <p class="display-card-sub">
+              鍵盤にドレミを表示します
+            </p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" checked data-action="change->free-play#toggleSolfege">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      </div>
+
+      <p class="keyboard-note">
+        ※ 文字入力はPCのキーボードに対応しています
+      </p>
+
+      <div class="back-link">
+        <%= link_to "トップに戻る", root_path %>
+      </div>
+
     </div>
-  </div>
-
-  <p class="keyboard-note">
-    ※ 文字入力はPCのキーボードに対応しています
-  </p>
-
-  <div class="back-link">
-    <%= link_to "トップに戻る", root_path %>
-  </div>
-
-</div>

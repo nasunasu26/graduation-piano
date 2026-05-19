@@ -161,6 +161,11 @@
 
 }
 
+.learn-progress {
+  min-height: 24px;
+  margin-bottom: 12px;
+}
+
 .learn-back-link {
   margin-top: 48px;
   margin-bottom: 12px;

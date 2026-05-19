@@ -3,7 +3,7 @@ import { SONGS } from "../data/songs"
 
 export default class extends Controller {
 
-  static targets = ["title", "message"]
+  static targets = ["title", "message", "progress"]
 
   static values = {
     song: String
@@ -119,7 +119,7 @@ export default class extends Controller {
 
       this.currentIndex++
 
-      this.messageTarget.textContent =
+      this.progressTarget.textContent =
         `${this.currentIndex} / ${this.notes.length} 音クリア`
 
       if (this.currentIndex % 4 === 0) {
