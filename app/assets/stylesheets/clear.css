@@ -39,6 +39,11 @@
   letter-spacing: 0.08em;
 }
 
+.song-line,
+.remember-line {
+  display: inline;
+}
+
 .clear-visual {
   margin-bottom: 48px;
 }
@@ -77,4 +82,30 @@
 .clear-page .back-link {
   margin-top: 24px;
   margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+
+  .clear-title {
+    font-size: 24px;
+  }
+
+  .clear-message {
+    font-size: 18px;
+  }
+
+  .song-line,
+  .remember-line {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .clear-song-title {
+    font-size: 20px;
+  }
+
+  .clear-symbol {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+  }
 }

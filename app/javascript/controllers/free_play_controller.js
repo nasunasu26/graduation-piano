@@ -4,46 +4,46 @@ export default class extends Controller {
 
   connect() {
 
-  window.playNote = this.playNote.bind(this)
-  window.stopNote = this.stopNote.bind(this)
+    window.playNote = this.playNote.bind(this)
+    window.stopNote = this.stopNote.bind(this)
 
-  this.AudioContext = window.AudioContext || window.webkitAudioContext
-  this.audioContext = null
-  this.activeOscillators = new Map()
+    this.AudioContext = window.AudioContext || window.webkitAudioContext
+    this.audioContext = null
+    this.activeOscillators = new Map()
 
-  //
-  const startAudio = () => {
+    //
+    const startAudio = () => {
 
-    if (!this.audioContext) {
-      this.audioContext = new this.AudioContext()
+      if (!this.audioContext) {
+        this.audioContext = new this.AudioContext()
+      }
+
+      if (this.audioContext.state === "suspended") {
+        this.audioContext.resume()
+      }
+
     }
 
-    if (this.audioContext.state === "suspended") {
-      this.audioContext.resume()
-    }
-
-  }
-
-  document.addEventListener("click", startAudio, { once: true })
-  document.addEventListener("touchstart", startAudio, { once: true })
+    document.addEventListener("click", startAudio, { once: true })
+    document.addEventListener("touchstart", startAudio, { once: true })
 
     // ===== キーボード配列 =====
     this.keyMap = {
 
       // Low Octave
-      "1":"C3", "2":"C#3", "3":"D3", "4":"D#3", "5":"E3",
-      "6":"F3", "7":"F#3", "8":"G3", "9":"G#3", "0":"A3",
-      "-":"A#3", "^":"B3",
+      "1": "C3", "2": "C#3", "3": "D3", "4": "D#3", "5": "E3",
+      "6": "F3", "7": "F#3", "8": "G3", "9": "G#3", "0": "A3",
+      "-": "A#3", "^": "B3",
 
       // Middle Octave
-      "q":"C4", "w":"C#4", "e":"D4", "r":"D#4", "t":"E4",
-      "y":"F4", "u":"F#4", "i":"G4", "o":"G#4", "p":"A4",
-      "@":"A#4", "[":"B4",
+      "q": "C4", "w": "C#4", "e": "D4", "r": "D#4", "t": "E4",
+      "y": "F4", "u": "F#4", "i": "G4", "o": "G#4", "p": "A4",
+      "@": "A#4", "[": "B4",
 
       // High Octave
-      "a":"C5", "s":"C#5", "d":"D5", "f":"D#5", "g":"E5",
-      "h":"F5", "j":"F#5", "k":"G5", "l":"G#5", ";":"A5",
-      ":":"A#5", "]":"B5"
+      "a": "C5", "s": "C#5", "d": "D5", "f": "D#5", "g": "E5",
+      "h": "F5", "j": "F#5", "k": "G5", "l": "G#5", ";": "A5",
+      ":": "A#5", "]": "B5"
     }
 
     this.handleKeyDown = this.handleKeyDown.bind(this)
@@ -147,12 +147,15 @@ export default class extends Controller {
   }
 
   // ===== 再生 =====
-  playNote(note) {
+  async playNote(note) {
 
     if (!note || this.activeOscillators.has(note)) return
 
-    if (!this.audioContext) this.audioContext = new this.AudioContext()
-    if (this.audioContext.state === "suspended") this.audioContext.resume()
+    //少し残しておく if (!this.audioContext) this.audioContext = new this.AudioContext()
+    //少し残しておく if (this.audioContext.state === "suspended") this.audioContext.resume()
+    
+    if (!this.audioContext) {this.audioContext = new this.AudioContext()} 
+    if (this.audioContext.state === "suspended") { await this.audioContext.resume() }
 
     const osc = this.audioContext.createOscillator()
     const gain = this.audioContext.createGain()
