@@ -12,7 +12,9 @@
 <div
   class="free-play-container"
   data-controller="learn free-play"
-  data-learn-song-value="<%= @song %>"
+  data-learn-song-value='<%= raw @song.notes %>'
+  data-learn-title-value="<%= @song.title %>"
+  data-learn-slug-value="<%= @song.slug %>"
 >
 
   <h2 class="learn-song-name" data-learn-target="title"></h2>

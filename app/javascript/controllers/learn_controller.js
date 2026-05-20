@@ -1,25 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
-import { SONGS } from "../data/songs"
 
 export default class extends Controller {
 
   static targets = ["title", "message", "progress"]
 
   static values = {
-    song: String
+    song: String,
+    title: String,
+    slug: String
   }
 
   connect() {
     this.mode = "idle"
 
-    this.song = SONGS[this.songValue]
-    this.notes = this.song.notes
+    this.notes = JSON.parse(this.songValue)
 
     this.currentIndex = 0
     this.checkpointIndex = 0
     this.isPlayingDemo = false
 
-    this.titleTarget.textContent = this.song.title
+    this.titleTarget.textContent = this.titleValue
 
     window.learnController = this
 
@@ -133,7 +133,7 @@ export default class extends Controller {
 
         setTimeout(() => {
           window.location.href =
-            "/learns/" + this.songValue + "/clear?title=" + encodeURIComponent(this.song.title)
+            "/learns/" + this.slugValue + "/clear?title=" + encodeURIComponent(this.titleValue)
         }, 800)
 
       }
