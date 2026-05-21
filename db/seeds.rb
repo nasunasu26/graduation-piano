@@ -3,6 +3,7 @@ Song.destroy_all
 Song.create!(
   title: "きらきら星",
   slug: "kirakira",
+  composer: "モーツァルト",
   notes: [
     { note: "C4", duration: 600 },
     { note: "C4", duration: 600 },
@@ -24,6 +25,7 @@ Song.create!(
 Song.create!(
   title: "悲愴",
   slug: "hisou",
+  composer: "ベートーヴェン",
     notes: [
       { note: "C4", duration: 1200 },
       { note: "A#3", duration: 1200 },
@@ -40,6 +42,7 @@ Song.create!(
 Song.create!(
   title: "主よ、人の望みの喜びよ",
   slug: "bach",
+  composer: "バッハ",
     notes: [
       { note: "G4", duration: 500 },
       { note: "A4", duration: 500 },
@@ -86,6 +89,7 @@ Song.create!(
 Song.create!(
   title: "メヌエット",
   slug: "menuet",
+  composer: "バッハ",
     notes: [
       { note: "D5", duration: 600 },
       { note: "G4", duration: 300 },

@@ -2,37 +2,48 @@
 
   <h1 class="learn-title">曲を少し覚えるモード</h1>
 
-  <div class="learn-song-list">
+  <div class="sort-box">
 
-    <div class="learn-song-link">
-      <%= link_to learn_path("kirakira") do %>
-        <span>きらきら星</span>
-        <span>＞</span>
-      <% end %>
-    </div>
+    <select onchange="location = this.value;">
+      <option value="/learns">並び替え</option>
 
-    <div class="learn-song-link">
-      <%= link_to learn_path("hisou") do %>
-        <span>悲愴</span>
-        <span>＞</span>
-      <% end %>
-    </div>
+      <option value="/learns?sort=title"
+        <%= "selected" if params[:sort] == "title" %>>
+        曲名順
+      </option>
 
-    <div class="learn-song-link">
-      <%= link_to learn_path("bach") do %>
-        <span>主よ、人の望みの喜びよ</span>
-        <span>＞</span>
-      <% end %>
-    </div>
-
-    <div class="learn-song-link">
-      <%= link_to learn_path("menuet") do %>
-        <span>メヌエット</span>
-        <span>＞</span>
-      <% end %>
-    </div>
+      <option value="/learns?sort=composer"
+        <%= "selected" if params[:sort] == "composer" %>>
+        作曲者順
+      </option>
+    </select>
 
   </div>
+
+  <div class="learn-song-list">
+
+    <% @songs.each do |song| %>
+
+      <div class="learn-song-link">
+        <%= link_to learn_path(song.slug) do %>
+          <div class="song-info">
+
+          <span class="song-title">
+            <%= song.title %>
+          </span>
+
+          <span class="song-composer">
+            <%= song.composer %>
+          </span>
+        </div>
+        <span>＞</span>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>
 
   <div class="back-link">
     <%= link_to "トップに戻る", root_path %>

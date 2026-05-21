@@ -1,6 +1,15 @@
 class LearnsController < ApplicationController
 
   def index
+    @songs =
+      case params[:sort]
+      when "title"
+        Song.order(:title)
+      when "composer"
+        Song.order(:composer)
+      else
+        Song.all
+      end
   end
 
   def show

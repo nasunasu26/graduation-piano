@@ -257,7 +257,7 @@ body {
 
   border-radius: 999px;
 
-  background: rgba(254, 210, 238, 0.249);
+  background: rgba(210, 254, 242, 0.249);
 
   display: flex;
   align-items: center;
@@ -280,7 +280,7 @@ body {
   max-width: 900px;
   margin: 48px auto 0;
   padding: 20px;
-  background: #f8f6ea;
+  background: #eaf8f7;
   border-radius: 16px;
 }
 
@@ -291,7 +291,7 @@ body {
 }
 
 .display-card {
-  background: #f8f6ea;
+  background: #eaf8f7;
   border-radius: 16px;
   padding: 4px 20px;
   display: flex;
@@ -352,7 +352,7 @@ body {
 }
 
 .switch input:checked + .slider {
-  background: #f0c5ea;
+  background: #a7e8cf;
 }
 
 .switch input:checked + .slider::before {
