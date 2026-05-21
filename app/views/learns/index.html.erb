@@ -2,6 +2,29 @@
 
   <h1 class="learn-title">曲を少し覚えるモード</h1>
 
+  <div class="learn-description">
+    曲を少し覚えるモードでは、曲の一部を聴いて、同じように弾いてみることができます。
+    ☆を押すとお気に入りに登録され、もう一度押すと解除されます。
+  </div>
+
+  <div class="learn-controls">
+
+  <div class="filter-box">
+
+    <select id="favorite-filter">
+      <option value="/learns">絞り込み</option>
+      <option value="all">
+        すべて
+      </option>
+
+    <option value="favorite">
+      お気に入り
+    </option>
+  </select>
+
+  </div>
+
+
   <div class="sort-box">
 
     <select onchange="location = this.value;">
@@ -19,30 +42,45 @@
     </select>
 
   </div>
+  </div>
 
-  <div class="learn-song-list">
+<div class="learn-song-list">
 
-    <% @songs.each do |song| %>
+  <% @songs.each do |song| %>
 
-      <div class="learn-song-link">
-        <%= link_to learn_path(song.slug) do %>
-          <div class="song-info">
+    <div class="learn-song-link"
+     data-favorite="false"
+     data-song-slug="<%= song.slug %>">
+      <%= link_to learn_path(song.slug) do %>
 
-          <span class="song-title">
-            <%= song.title %>
-          </span>
+  <div class="song-info">
 
-          <span class="song-composer">
-            <%= song.composer %>
-          </span>
-        </div>
-        <span>＞</span>
-      <% end %>
+    <div class="song-title-row">
+
+      <span class="song-title">
+        <%= song.title %>
+      </span>
 
     </div>
 
-  <% end %>
+    <span class="song-composer">
+      <%= song.composer %>
+    </span>
 
+  </div>
+
+  <div class="song-actions">
+
+    <span class="favorite-star">☆</span>
+
+    <span>＞</span>
+
+  </div>
+
+<% end %>
+        
+    </div>
+  <% end %>
 </div>
 
   <div class="back-link">
