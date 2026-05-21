@@ -112,3 +112,29 @@ Song.create!(
       { note: "G4", duration: 600 }
     ].to_json
 )
+
+Song.create!(
+  title: "人形の夢と目覚め",
+  slug: "dollys_dreaming_and_awakening",
+  composer: "T.エステン",
+  notes: [
+    { note: "G4", duration: 300 },
+    { note: "F4", duration: 300 },
+    { note: "E4", duration: 600 },
+    { note: "G4", duration: 300 },
+    { note: "C5", duration: 300 },
+    { note: "B4", duration: 600 },
+    { note: "G4", duration: 300 },
+    { note: "D5", duration: 300 },
+    { note: "C5", duration: 600 },
+    { note: "E5", duration: 1200 },
+    { note: "C5", duration: 300 },
+    { note: "B4", duration: 300 },
+    { note: "A4", duration: 600 },
+    { note: "F5", duration: 300 },
+    { note: "D5", duration: 300 },
+    { note: "C5", duration: 600 },
+    { note: "B4", duration: 600 },
+    { note: "C5", duration: 1200 }
+  ].to_json
+)

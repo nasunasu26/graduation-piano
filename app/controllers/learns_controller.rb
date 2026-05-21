@@ -8,7 +8,7 @@ class LearnsController < ApplicationController
       when "composer"
         Song.order(:composer)
       else
-        Song.all
+        Song.order(created_at: :asc)
       end
   end
 

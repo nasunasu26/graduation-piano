@@ -3,7 +3,7 @@
   <h1 class="learn-title">曲を少し覚えるモード</h1>
 
   <div class="learn-description">
-    曲を少し覚えるモードでは、曲の一部を聴いて、同じように弾いてみることができます。
+    曲の一部を聴いて、同じように弾いてみることができます。<br>
     ☆を押すとお気に入りに登録され、もう一度押すと解除されます。
   </div>
 
@@ -12,7 +12,7 @@
   <div class="filter-box">
 
     <select id="favorite-filter">
-      <option value="/learns">絞り込み</option>
+      <option selected disabled>絞り込み</option>
       <option value="all">
         すべて
       </option>
@@ -28,19 +28,26 @@
   <div class="sort-box">
 
     <select onchange="location = this.value;">
-      <option value="/learns">並び替え</option>
 
-      <option value="/learns?sort=title"
-        <%= "selected" if params[:sort] == "title" %>>
-        曲名順
-      </option>
+  <option selected disabled>
+    並び替え
+  </option>
 
-      <option value="/learns?sort=composer"
-        <%= "selected" if params[:sort] == "composer" %>>
-        作曲者順
-      </option>
-    </select>
+  <option value="/learns">
+    登録順
+  </option>
 
+  <option value="/learns?sort=title"
+    <%= "selected" if params[:sort] == "title" %>>
+    曲名順
+  </option>
+
+  <option value="/learns?sort=composer"
+    <%= "selected" if params[:sort] == "composer" %>>
+    作曲者順
+  </option>
+
+</select>
   </div>
   </div>
 

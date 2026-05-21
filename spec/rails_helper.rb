@@ -1,5 +1,29 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+
+require 'capybara/rspec'
+
+Capybara.register_driver :chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+
+  options.binary = '/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'
+
+  options.add_argument('--no-sandbox')
+  options.add_argument('--disable-dev-shm-usage')
+  options.add_argument('--headless')
+
+  Capybara::Selenium::Driver.new(app,
+    browser: :chrome,
+    options: options
+  )
+end
+
+RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by :chrome
+  end
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
