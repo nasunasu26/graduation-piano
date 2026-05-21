@@ -138,3 +138,57 @@ Song.create!(
     { note: "C5", duration: 1200 }
   ].to_json
 )
+
+Song.create!(
+  title: "トルコ行進曲",
+  slug: "turkish_march",
+  composer: "モーツァルト",
+  notes: [
+     { note: "B3", duration: 300 },
+    { note: "A3", duration: 300 },
+    { note: "G#3", duration: 300 },
+    { note: "A3", duration: 300 },
+    { note: "C4", duration: 1200 },
+
+    { note: "D4", duration: 300 },
+    { note: "C4", duration: 300 },
+    { note: "B3", duration: 300 },
+    { note: "C4", duration: 300 },
+    { note: "E4", duration: 1200 },
+
+    { note: "F4", duration: 300 },
+    { note: "E4", duration: 300 },
+    { note: "D#4", duration: 300 },
+    { note: "E4", duration: 300 },
+
+    { note: "B4", duration: 300 },
+    { note: "A4", duration: 300 },
+    { note: "G#4", duration: 300 },
+    { note: "A4", duration: 300 },
+
+    { note: "B4", duration: 300 },
+    { note: "A4", duration: 300 },
+    { note: "G#4", duration: 300 },
+    { note: "A4", duration: 300 },
+    { note: "C5", duration: 1200 },
+
+    { note: "A4", duration: 600 },
+    { note: "C5", duration: 600 },
+
+    { note: "B4", duration: 600 },
+    { note: "A4", duration: 600 },
+    { note: "G4", duration: 600 },
+    { note: "A4", duration: 600 },
+
+    { note: "B4", duration: 600 },
+    { note: "A4", duration: 600 },
+    { note: "G4", duration: 600 },
+    { note: "A4", duration: 600 },
+
+    { note: "B4", duration: 600 },
+    { note: "A4", duration: 600 },
+    { note: "G4", duration: 600 },
+    { note: "F#4", duration: 600 },
+    { note: "E4", duration: 1200 },
+  ].to_json
+)

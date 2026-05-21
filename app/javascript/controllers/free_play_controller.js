@@ -165,9 +165,6 @@ export default class extends Controller {
 
     if (!note || this.activeOscillators.has(note)) return
 
-    //少し残しておく if (!this.audioContext) this.audioContext = new this.AudioContext()
-    //少し残しておく if (this.audioContext.state === "suspended") this.audioContext.resume()
-
     if (!this.audioContext) { this.audioContext = new this.AudioContext() }
     if (this.audioContext.state === "suspended") { await this.audioContext.resume() }
 
