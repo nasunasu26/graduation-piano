@@ -75,6 +75,21 @@ export default class extends Controller {
       "touchend",
       this.handleTouchEnd.bind(this)
     )
+
+    // スマホでは最初からキーボード表示OFF
+    const isMobile =
+      /iPhone|Android/.test(navigator.userAgent)
+
+    console.log(isMobile)
+
+    if (isMobile) {
+      this.element.classList.add("hide-keyboard")
+
+      const keyboardToggle =
+        document.querySelector("#keyboard-toggle")
+
+      keyboardToggle.checked = false
+    }
   }
 
   handleTouchStart(e) {
@@ -176,7 +191,7 @@ export default class extends Controller {
   // ===== 再生 =====
   async playNote(note) {
 
-    // すでに音が鳴っている場合は重複して鳴
+    // すでに音が鳴っている場合は重複して鳴らさない
     if (!note || this.activeOscillators.has(note)) return
 
     if (!this.audioContext) { this.audioContext = new this.AudioContext() }

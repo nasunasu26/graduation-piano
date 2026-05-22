@@ -96,9 +96,25 @@ document.addEventListener("turbo:load", () => {
         }
 
       })
-
+      
     })
 
   }
+
+// ページトップへ戻る
+const pagetop =
+  document.querySelector("#pagetop")
+
+if (pagetop) {
+
+  pagetop.addEventListener("click", () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+
+  })
+}
 
 })
