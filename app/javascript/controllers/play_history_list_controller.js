@@ -17,6 +17,8 @@ export default class extends Controller {
     const lastPlayed =
       histories[histories.length - 1]
 
+    if (!lastPlayed) return
+
     const recentClearCount =
       histories.filter(history =>
         Number(history.songId) ===
@@ -41,7 +43,8 @@ export default class extends Controller {
       const recentTitle =
         recentSong?.dataset.songTitle
 
-      this.summaryTarget.innerHTML = `
+      if (recentTitle) {
+        this.summaryTarget.innerHTML = `
     <p>
       最近弾いた曲：${recentTitle}
     </p>
@@ -54,6 +57,7 @@ export default class extends Controller {
       この曲のクリア回数：${recentClearCount}回
     </p>
   `
+      }
     }
 
   }

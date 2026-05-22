@@ -176,15 +176,18 @@ export default class extends Controller {
   // ===== 再生 =====
   async playNote(note) {
 
+    // すでに音が鳴っている場合は重複して鳴
     if (!note || this.activeOscillators.has(note)) return
 
     if (!this.audioContext) { this.audioContext = new this.AudioContext() }
+    // 音声機能が停止中なら再開する（スマホブラウザ対策）
     if (this.audioContext.state === "suspended") { await this.audioContext.resume() }
 
     const osc = this.audioContext.createOscillator()
     const gain = this.audioContext.createGain()
 
     osc.type = "triangle"
+    // 音名（C4など）から周波数を計算して設定
     osc.frequency.value = this.noteToFrequency(note)
     gain.gain.value = 0.15
 
@@ -194,6 +197,7 @@ export default class extends Controller {
 
     this.activeOscillators.set(note, { osc, gain })
 
+    // 音名に対応する鍵盤を取得
     const keyEl = document.querySelector(`.key[data-note="${note}"]`)
     keyEl?.classList.add("active")
 
