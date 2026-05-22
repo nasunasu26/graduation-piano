@@ -82,32 +82,44 @@
     </div>
   </div>
 
-      <div class="display-settings">
+  <div class="display-settings">
 
-        <div class="display-card">
-          <div class="display-card-text">
-            <p class="display-card-main">
-              ドレミ表示
-            </p>
-            <p class="display-card-sub">
-              鍵盤にドレミを表示します
-            </p>
-          </div>
-
-          <label class="switch">
-            <input type="checkbox" checked data-action="change->free-play#toggleSolfege">
-            <span class="slider"></span>
-          </label>
-        </div>
-
+    <div class="display-card">
+      <div class="display-card-text">
+        <p class="display-card-main">
+          ドレミ表示
+        </p>
+        <p class="display-card-sub">
+          鍵盤にドレミを表示します
+        </p>
       </div>
 
-      <p class="keyboard-note">
-        ※ 文字入力はPCのキーボードに対応しています
-      </p>
-
-      <div class="back-link">
-        <%= link_to "トップに戻る", root_path %>
-      </div>
-
+      <label class="switch">
+        <input type="checkbox" checked data-action="change->free-play#toggleSolfege">
+        <span class="slider"></span>
+      </label>
     </div>
+
+    <div class="display-card">
+      <div class="display-card-text">
+        <p class="display-card-main">
+          キーボード表示
+        </p>
+        <p class="display-card-sub">
+          PCキーボード対応キーを表示します
+        </p>
+      </div>
+
+      <label class="switch">
+        <input type="checkbox" checked data-action="change->free-play#toggleKeyboard">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+  </div>
+
+  <div class="back-link">
+    <%= link_to "トップに戻る", root_path %>
+  </div>
+
+</div>

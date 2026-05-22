@@ -20,8 +20,7 @@
 
   <h2 class="learn-song-name" data-learn-target="title"></h2>
 
-  <p class="learn-progress"
-    data-learn-target="progress">
+  <p class="learn-progress" data-learn-target="progress">
   </p>
 
   <p data-learn-target="message">
@@ -120,11 +119,23 @@
       </label>
     </div>
 
-  </div>
+    <div class="display-card">
+      <div class="display-card-text">
+        <p class="display-card-main">
+          キーボード表示
+        </p>
+        <p class="display-card-sub">
+          PCキーボード対応キーを表示します
+        </p>
+      </div>
 
-  <p class="keyboard-note">
-    ※ 文字入力はPCのキーボードに対応しています
-  </p>
+      <label class="switch">
+        <input type="checkbox" checked data-action="change->free-play#toggleKeyboard">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+  </div>
 
   <div class="learn-back-link">
     <%= link_to "曲選択画面に戻る", learns_path %>

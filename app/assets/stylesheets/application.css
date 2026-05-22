@@ -248,7 +248,7 @@ body {
 
 .solfege-label {
   position: absolute;
-  bottom: 34px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -257,7 +257,7 @@ body {
 
   border-radius: 999px;
 
-  background: rgba(208, 238, 240, 0.249);
+  background: #eef6f5;
 
   display: flex;
   align-items: center;
@@ -280,8 +280,11 @@ body {
   max-width: 900px;
   margin: 48px auto 0;
   padding: 20px;
-  background: #eef6f5;
+  background: #ffffff;
   border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .display-settings-title {
@@ -293,7 +296,7 @@ body {
 .display-card {
   background: #eef6f5;
   border-radius: 16px;
-  padding: 4px 20px;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -322,7 +325,7 @@ body {
   position: relative;
 
   width: 64px;
-  height: 36px;
+  height:36px;
 }
 
 .switch input {
@@ -360,6 +363,11 @@ body {
 }
 
 .hide-solfege .solfege-label {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hide-keyboard .key-label {
   opacity: 0;
   transition: opacity 0.2s ease;
 }

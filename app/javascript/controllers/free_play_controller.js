@@ -116,6 +116,19 @@ export default class extends Controller {
 
   }
 
+  toggleKeyboard(e) {
+
+    if (e.target.checked) {
+
+      this.element.classList.remove("hide-keyboard")
+
+    } else {
+
+      this.element.classList.add("hide-keyboard")
+
+    }
+  }
+
   disconnect() {
 
     window.removeEventListener("keydown", this.handleKeyDown)
