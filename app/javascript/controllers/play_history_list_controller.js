@@ -14,10 +14,14 @@ export default class extends Controller {
     const histories =
       JSON.parse(localStorage.getItem("playHistories")) || []
 
-    const totalClearCount = histories.length
-
     const lastPlayed =
       histories[histories.length - 1]
+
+    const recentClearCount =
+      histories.filter(history =>
+        Number(history.songId) ===
+        Number(lastPlayed.songId)
+      ).length
 
     if (lastPlayed) {
 
@@ -47,7 +51,7 @@ export default class extends Controller {
     </p>
 
     <p>
-      累計クリア回数：${totalClearCount}回
+      この曲のクリア回数：${recentClearCount}回
     </p>
   `
     }
