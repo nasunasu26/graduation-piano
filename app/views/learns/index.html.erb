@@ -1,10 +1,19 @@
-<div class="learn-page">
+<div
+  class="learn-page"
+  data-controller="play-history-list"
+>
 
   <h1 class="learn-title">曲を少し覚えるモード</h1>
 
   <div class="learn-description">
     曲の一部を聴いて、同じように弾いてみることができます。<br>
     ☆を押すとお気に入りに登録され、もう一度押すと解除されます。
+  </div>
+
+  <div
+    class="play-summary"
+    data-play-history-list-target="summary"
+  >
   </div>
 
   <div class="learn-controls">
@@ -55,39 +64,44 @@
 
   <% @songs.each do |song| %>
 
-    <div class="learn-song-link"
-     data-favorite="false"
-     data-song-slug="<%= song.slug %>">
-      <%= link_to learn_path(song.slug) do %>
+  <div class="learn-song-link"
+    data-favorite="false"
+    data-song-id="<%= song.id %>"
+    data-song-title="<%= song.title %>"
+    data-song-slug="<%= song.slug %>">
 
-  <div class="song-info">
+    <%= link_to learn_path(song.slug) do %>
 
-    <div class="song-title-row">
+      <div class="song-info">
 
-      <span class="song-title">
-        <%= song.title %>
-      </span>
+        <div class="song-title-row">
 
-    </div>
+          <span class="song-title">
+            <%= song.title %>
+          </span>
 
-    <span class="song-composer">
-      <%= song.composer %>
-    </span>
+        </div>
 
-  </div>
+        <span class="song-composer">
+          <%= song.composer %>
+        </span>
 
-  <div class="song-actions">
+      </div>
 
-    <span class="favorite-star">☆</span>
+      <div class="song-actions">
 
-    <span>＞</span>
+        <span class="favorite-star">☆</span>
+
+        <span>＞</span>
+
+      </div>
+
+    <% end %>
 
   </div>
 
 <% end %>
-        
-    </div>
-  <% end %>
+
 </div>
 
   <div class="back-link">

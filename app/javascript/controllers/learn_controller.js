@@ -7,7 +7,8 @@ export default class extends Controller {
   static values = {
     song: String,
     title: String,
-    slug: String
+    slug: String,
+    songId: Number
   }
 
   connect() {
@@ -93,7 +94,7 @@ export default class extends Controller {
             })
           }
         }
-        
+
         setTimeout(() => {
           if (window.stopNote) {
             window.stopNote(note)
@@ -133,7 +134,12 @@ export default class extends Controller {
 
         setTimeout(() => {
           window.location.href =
-            "/learns/" + this.slugValue + "/clear?title=" + encodeURIComponent(this.titleValue)
+            "/learns/" +
+            this.slugValue +
+            "/clear?title=" +
+            encodeURIComponent(this.titleValue) +
+            "&song_id=" +
+            this.songIdValue
         }, 800)
 
       }

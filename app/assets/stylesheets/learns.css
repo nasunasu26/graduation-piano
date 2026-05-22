@@ -21,9 +21,21 @@
   letter-spacing: 0.08em;
 }
 
+.learn-description,
+.play-summary {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+
+  margin-bottom: 48px;
+
+  letter-spacing: 0.04em;
+}
+
 /* 下の斜線ライン */
 
-.learn-title::after {
+.learn-title::after,
+.learn-description::after {
   content: "";
 
   display: block;
@@ -44,7 +56,14 @@
   );
 }
 
+/* 演奏履歴 */
+
+.play-summary p {
+  margin: 1px 0;
+}
+
 /* ===== 曲一覧 ===== */
+
 
 .learn-controls {
   display: flex;

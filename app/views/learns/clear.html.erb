@@ -22,6 +22,11 @@
     <%= image_tag "nekotoonpu.png", alt: "猫と音符のイラスト" %>
   </div>
 
+  <div
+    data-controller="play-history"
+    data-play-history-song-id-value="<%= params[:song_id] %>"
+  >
+  </div>
 
   <div class="back-link-top">
     <%= link_to "曲選択画面に戻る", learns_path %>
