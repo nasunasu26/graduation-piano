@@ -11,7 +11,7 @@ export default class extends Controller {
     this.audioContext = null
     this.activeOscillators = new Map()
 
-    //
+    // スマホブラウザでの音声機能を有効化
     const startAudio = () => {
 
       if (!this.audioContext) {
@@ -49,8 +49,14 @@ export default class extends Controller {
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
 
+    this.boundStopAllSounds =
+      this.stopAllSounds.bind(this)
+
     window.addEventListener("keydown", this.handleKeyDown)
     window.addEventListener("keyup", this.handleKeyUp)
+
+    window.addEventListener("touchend", this.boundStopAllSounds)
+    window.addEventListener("touchcancel", this.boundStopAllSounds)
 
     // ===== ドラッグスクロール =====
     this.isDragging = false
@@ -149,6 +155,9 @@ export default class extends Controller {
     window.removeEventListener("keydown", this.handleKeyDown)
     window.removeEventListener("keyup", this.handleKeyUp)
 
+    window.removeEventListener("touchend", this.boundStopAllSounds)
+    window.removeEventListener("touchcancel", this.boundStopAllSounds)
+
   }
 
   // ===== マウス操作 =====
@@ -237,6 +246,25 @@ export default class extends Controller {
 
     const keyEl = document.querySelector(`.key[data-note="${note}"]`)
     keyEl?.classList.remove("active")
+
+  }
+
+  stopAllSounds() {
+
+    this.activeOscillators.forEach((obj, note) => {
+
+      obj.osc.stop()
+      obj.osc.disconnect()
+      obj.gain.disconnect()
+
+      const keyEl =
+        document.querySelector(`.key[data-note="${note}"]`)
+
+      keyEl?.classList.remove("active")
+
+    })
+
+    this.activeOscillators.clear()
 
   }
 
