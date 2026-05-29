@@ -3,7 +3,7 @@
  *= require_self
  */
 
-/* ===== Global Layout ===== */
+/* ===== ヘッダーとフッター共通 ===== */
 
 .site-header,
 .site-footer {
@@ -13,13 +13,13 @@
   box-sizing: border-box;
 }
 
-/* ===== body ===== */
+/* ===== 本体 ===== */
 body {
   font-family: "Kaisei Decol", serif;
   margin: 0;
 }
 
-/* ===== Header Style ===== */
+/* ===== ヘッダー ===== */
 
 .site-header {
   background: #F5F8CC;
@@ -37,7 +37,7 @@ body {
   background: #F5F8CC;
 }
 
-/* ===== Footer Style ===== */
+/* ===== フッター ===== */
 
 .site-footer {
   background: #F5F8CC;
@@ -51,7 +51,7 @@ body {
   font-size: 14px;
 }
 
-/* ===== Logo ===== */
+/* ===== ロゴタイトル ===== */
 
 .site-logo {
   height: 42px;
@@ -62,7 +62,7 @@ body {
   color: #222;
 }
 
-/* ===== Back Link Style ===== */
+/* ===== 戻るリンク ===== */
 
 .back-link {
   margin-top: 36px;
@@ -83,7 +83,7 @@ body {
   opacity: 0.6;
 }
 
-/* ===== Page Center Layout ===== */
+/* ===== 自由演奏ページ ===== */
 
 .free-play-container {
   text-align: center;
@@ -94,7 +94,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* ===== Piano Keyboard ===== */
+/* ===== ピアノキーボード ===== */
 
 .piano-scroll {
   width: 100%;
@@ -113,7 +113,7 @@ body {
   user-select: none;
 }
 
-/* ===== Keys (共通) ===== */
+/* ===== ピアノ鍵盤（共通） ===== */
 
 .key {
   position: relative; /* ラベル配置用 */
@@ -135,7 +135,7 @@ body {
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* ===== White Keys ===== */
+/* ===== ピアノ鍵盤（白鍵） ===== */
 
 .white-keys {
   display: flex;
@@ -155,7 +155,7 @@ body {
   background: #f1f6eb;
 }
 
-/* ===== Black Keys ===== */
+/* ===== ピアノ鍵盤（黒鍵） ===== */
 
 .black-keys {
   position: absolute;
@@ -190,7 +190,7 @@ body {
   touch-action: manipulation;
 }
 
-/* ===== Black Key Positions ===== */
+/* ===== ピアノ鍵盤位置（黒鍵） ===== */
 /* white key width = 64px */
 /* black key width = 40px */
 /* octave width = 7 * 64 = 448px */
@@ -216,7 +216,7 @@ body {
 [data-note="G#5"] { left: calc(896px + 64px * 5 - 20px); }
 [data-note="A#5"] { left: calc(896px + 64px * 6 - 20px); }
 
-/* ===== Key Label（キーボード表示） ===== */
+/* ===== PCキーボード表示 ===== */
 
 .key-label {
   position: absolute;
@@ -244,7 +244,7 @@ body {
   opacity: 0.6;
 }
 
-/* ===== Solfege Label（ドレミ表示） ===== */
+/* ===== ドレミ表示 ===== */
 
 .solfege-label {
   position: absolute;
@@ -274,7 +274,7 @@ body {
   background: rgba(255, 245, 180, 0.2);
 }
 
-/* ===== Display Settings ===== */
+/* ===== 表示設定（キーボード・ドレミ） ===== */
 
 .display-settings {
   max-width: 900px;
@@ -319,7 +319,7 @@ body {
   text-align: left;
 }
 
-/* ===== Switch（鍵盤表示非表示） ===== */
+/* ===== 表示非表示 ===== */
 
 .switch {
   position: relative;
